@@ -12,6 +12,19 @@
 //   l.insertLast('c')
 //   midpoint(l); // returns { data: 'b' }
 
-function midpoint(list) {}
+// NOTE: in an interview setting you'd need to check which functions are available on the list
+// In this situation, you have all the functions defined in 'linkedlist.js'
+
+function midpoint(list) {
+  let slow = list.head;
+  let fast = list.head;
+
+  while(fast.next && fast.next.next) {
+    fast = fast.next.next;
+    slow = slow.next;
+  }
+
+  return slow;
+}
 
 module.exports = midpoint;
